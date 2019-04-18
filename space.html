@@ -5,17 +5,12 @@
 <head>
   <title>Space!</title>
   <meta name="description" content="Space themed 2D shooter">
-<style>
-canvas {
-  display:block;
-  border:1px;
-  background:#000;
-}
-</style>
-<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <link rel="stylesheet" href="gamepage.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <div><a href="index.html">&#8678; back</a> &#124; arrow keys to move, space bar to shoot. Hurry, but don't crash!</div>
+  <canvas id="canvas" style="background:#000"></canvas>
 <script>
   var canvas = document.getElementById('canvas'),
   ctx = canvas.getContext('2d'),
@@ -184,14 +179,12 @@ canvas {
 
   //shows the try again button and removes it once clicked
   function againButton(e) {
-    if (e.pageX > (width / 2) - 53 && e.pageX < (width / 2) + 47 && e.pageY > (height / 2) + 10 && e.pageY < (height / 2) + 50) {
-      canvas.removeEventListener('click', againButton, false);
-      lose = false; win = false; lives = 3; score = 0; secs = 60; enemies = []; spawned = false; //resets relevant variables
-      timer = setInterval( function() {
-        secs -= 1;
-      }, 1000); //restart game timer
-      reset();
-    }
+    canvas.removeEventListener('click', againButton, false);
+    lose = false; win = false; lives = 3; score = 0; secs = 60; enemies = []; spawned = false; //resets relevant variables
+    timer = setInterval( function() {
+      secs -= 1;
+    }, 1000); //restart game timer
+    reset();
   }
 
   //draws text for score and lives, and if player is out of lives, draws the game over text and try again button (with event listener for being clicked)
@@ -270,6 +263,5 @@ canvas {
 
   gameLoop(); //starts game loop on load
 </script>
-<p>arrow keys to move, space bar to shoot. Hurry, but don't crash!<br><a href="index.html">&lt; back</a></p>
 </body>
 </html>

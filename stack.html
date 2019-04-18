@@ -4,16 +4,11 @@
 <head>
   <title>Stack!</title>
   <meta name="description" content="2D tetromino game">
-<style>
-canvas {
-  display:block;
-  border:1px solid #000;
-  background:#e3efde;
-}
-</style>
+  <link rel="stylesheet" href="gamepage.css" type="text/css">
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <div><a href="index.html">&#8678; back</a> &#124; arrow keys to move blocks, up arrow key to rotate, space bar to drop, P to pause.</div>
+  <canvas id="canvas" style="background:#e3efde"></canvas>
 <script>
   var canvas = document.getElementById('canvas'),
   ctx = canvas.getContext('2d'),
@@ -230,6 +225,5 @@ canvas {
 
   newGame(); //starts game on load
 </script>
-<p>arrow keys to move blocks, up arrow key to rotate, space bar to drop, P to pause.<br><a href="index.html">&lt; back</a></p>
 </body>
 </html>

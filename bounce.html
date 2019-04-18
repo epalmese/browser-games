@@ -5,16 +5,11 @@
 <head>
   <title>Bounce!</title>
   <meta name="description" content="ball bouncing game">
-<style>
-canvas {
-  display:block;
-  border:1px solid #000;
-  background:#000;
-}
-</style>
+  <link rel="stylesheet" href="gamepage.css" type="text/css">
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <div><a href="index.html">&#8678; back</a> &#124; click to start, move the paddle left and right by moving the mouse.</div>
+  <canvas id="canvas" style="background:#000"></canvas>
 <script>
   var canvas = document.getElementById('canvas'),
   ctx = canvas.getContext('2d'),
@@ -83,17 +78,17 @@ canvas {
 
   //event listeners for mouse tracking and clicks
   canvas.addEventListener('mousemove', function(e) {
-    mouse.x = e.pageX; mouse.y = e.pageY;
+    mouse.x = e.pageX - canvas.offsetLeft; mouse.y = e.pageY;
   });
   canvas.addEventListener('mousedown', function(e) {
     if (lose == false && playing == false) {
-      if (e.pageX >= playBtn.x && e.pageX <= playBtn.x + playBtn.w) { //on click
+      if (e.pageX >= playBtn.x + canvas.offsetLeft && e.pageX <= playBtn.x + playBtn.w + canvas.offsetLeft) { //on click
         playing = true;
         refresh();
       }
     }
     else if (lose == true && playing == false) { //if game is over and play button clicked
-      if (e.pageX >= playBtn.x && e.pageX <= playBtn.x + playBtn.w && e.pageY <= playBtn.y + playBtn.h) {
+      if (e.pageX >= playBtn.x + canvas.offsetLeft && e.pageX <= playBtn.x + playBtn.w + canvas.offsetLeft && e.pageY <= playBtn.y + playBtn.h - 25 + canvas.offsetTop) {
         ball.x = Math.floor((Math.random() * 360) + 30); //random x coordinate
         score = 0;
         ball.y = 80; //default y coordinate
@@ -103,7 +98,7 @@ canvas {
         playing = true;
         refresh();
       }
-      if (e.pageX >= tweetBtn.x && e.pageX <= tweetBtn.x + tweetBtn.w && e.pageY >= tweetBtn.y) {
+      if (e.pageX >= tweetBtn.x + canvas.offsetLeft && e.pageX <= tweetBtn.x + tweetBtn.w + canvas.offsetLeft && e.pageY >= tweetBtn.y + canvas.offsetTop) {
         var txt = 'I got ' + score + ' points in this game - ' + window.location.href + ' @enricopalmese';
         var twt = 'http://twitter.com/home?status=' + encodeURIComponent(txt);
         window.open(twt,'_blank');
@@ -237,6 +232,5 @@ canvas {
 
   gameLoop(); //starts game loop on load
 </script>
-<p>click to start, move the paddle left and right by moving the mouse.<br><a href="index.html">&lt; back</a></p>
 </body>
 </html>

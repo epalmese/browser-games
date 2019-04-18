@@ -1,0 +1,16 @@
+body {
+  margin:0em;
+  background:#DCDCDC;
+}
+canvas {
+  display:block;
+  margin:auto;
+  border:1px solid #000;
+}
+div {
+  padding:0.5em;
+  border-bottom:1px solid #000;
+  margin-bottom:1em;
+  text-align:center;
+  background:#fff;
+}

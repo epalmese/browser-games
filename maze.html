@@ -5,16 +5,11 @@
 <head>
   <title>Maze!</title>
   <meta name="description" content="expandable faux 3D walkaround (test)">
-<style>
-canvas {
-  display:block;
-  border:1px solid #000;
-  background:#ccc;
-}
-</style>
+  <link rel="stylesheet" href="gamepage.css" type="text/css">
 </head>
 <body>
-  <canvas id='canvas'></canvas>
+  <div><a href="index.html">&#8678; back</a> &#124; W and S to walk, A and D to turn, Q and E to sidestep. Hold Shift to run. It will be day or night based on the time.</div>
+  <canvas id="canvas" style="background:#ccc"></canvas>
 <script>
   var canvas = document.getElementById('canvas');
   canvas.width = 720;
@@ -180,8 +175,8 @@ canvas {
   };
   View.prototype.drawCrosshair = function() {
     this.ctx.fillStyle = '#aaa';
-    this.ctx.fillRect(360, 230, 1, 20);
-    this.ctx.fillRect(350, 240, 20, 1);
+    this.ctx.fillRect(this.width / 2, (this.height / 2) - 10, 1, 20);
+    this.ctx.fillRect((this.width / 2) - 10, this.height / 2, 20, 1);
   };
 
   function gameLoop() { //updates visuals
@@ -215,6 +210,5 @@ canvas {
   }, false);
   map.audio.play(); //plays audio initially on load
 </script>
-<p>W and S to walk, A and D to turn, Q and E to sidestep. Hold Shift to run. It will be day or night based on the time.<br><a href="index.html">&lt; back</a></p>
 </body>
 </html>

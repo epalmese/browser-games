@@ -4,16 +4,11 @@
 <head>
   <title>Jump!</title>
   <meta name="description" content="2D platformer">
-<style>
-canvas {
-  display:block;
-  border:1px solid #000;
-  background:#fff;
-}
-</style>
+  <link rel="stylesheet" href="gamepage.css" type="text/css">
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <div><a href="index.html">&#8678; back</a> &#124; left and right arrow keys to move, up arrow to jump. Collect gold!</div>
+  <canvas id="canvas" style="background:#fff"></canvas>
 <script>
   var canvas = document.getElementById('canvas'),
   ctx = canvas.getContext('2d'),
@@ -275,6 +270,5 @@ canvas {
 
   gameLoop(); //starts game loop on load
 </script>
-<p>left and right arrow keys to move, up arrow to jump. Collect gold!<br><a href="index.html">&lt; back</a></p>
 </body>
 </html>

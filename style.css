@@ -47,8 +47,8 @@ h3 {
     padding: 0.5em;
 }
 #repotable {
-    border-top: 10px solid;
-    border-bottom: 10px solid;
+    border-top: 0.5em solid;
+    border-bottom: 0.5em solid;
 }
 #repotable td, th {
     width: 100%;
